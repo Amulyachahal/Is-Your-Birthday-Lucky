@@ -14,6 +14,7 @@ const dateConverter = (dob) => {
 
 const luckyOrNot = () => {
   const sumDob = dateConverter(birthDate.value);
+  console.log(birthDate);
   checkLucky(sumDob, favouriteNumber.value);
 };
 
@@ -22,14 +23,15 @@ const displayOutput = (msg) => {
 };
 
 const checkLucky = (sum, favNumber) => {
-  if (favNumber) {
+  const date = birthDate.value;
+  if (favNumber && date) {
     if (sum % favNumber === 0) {
       displayOutput("Lucky! 🎉");
     } else {
       displayOutput("Not lucky, You make your own luck 💪");
     }
   } else {
-    displayOutput("Please enter a number 😶‍🌫️");
+    displayOutput("Please complete both the input fields 😶‍🌫️");
   }
 };
 
